@@ -1,55 +1,61 @@
-/**
- * Layout component that queries for data
- * with Gatsby's useStaticQuery component
- *
- * See: https://www.gatsbyjs.com/docs/use-static-query/
- */
+import React from 'react';
+import Header from '../components/header'
+import Footer from '../components/footer'
+import { Global, css } from '@emotion/react';
+import Helmet from 'react-helmet'
+import useSeo from '../hooks/use-seo'
 
-import * as React from "react"
-import PropTypes from "prop-types"
-import { useStaticQuery, graphql } from "gatsby"
+const Layout = (props) => {
 
-import Header from "./header"
-import "./layout.css"
+    const seo = useSeo()
 
-const Layout = ({ children }) => {
-  const data = useStaticQuery(graphql`
-    query SiteTitleQuery {
-      site {
-        siteMetadata {
-          title
-        }
-      }
-    }
-  `)
+    const {siteName, fallbackSeo: {description, title}} = seo
 
-  return (
-    <>
-      <Header siteTitle={data.site.siteMetadata?.title || `Title`} />
-      <div
-        style={{
-          margin: `0 auto`,
-          maxWidth: 960,
-          padding: `0 1.0875rem 1.45rem`,
-        }}
-      >
-        <main>{children}</main>
-        <footer
-          style={{
-            marginTop: `2rem`,
-          }}
-        >
-          © {new Date().getFullYear()}, Built with
-          {` `}
-          <a href="https://www.gatsbyjs.com">Gatsby</a>
-        </footer>
-      </div>
-    </>
-  )
+    return ( 
+        <>
+            <Global 
+                styles={css`
+                    html{
+                        font-size: 62.5%;
+                        box-sizing: border-box;
+                    }
+                    *,*:before, *:after{
+                        box-sizing: inherit;
+                    }
+                    body{
+                        font-size: 16px;
+                        font-size: 1.6rem;
+                        line-height: 1.5;
+                    }
+                    h1, h2, h3{
+                        margin: 0;
+                        line-height: 1.5;
+                    }
+                    h1,h2{
+                        font-family: 'Roboto', serif;
+                    }
+                    h1{
+                        font-family: 'PT sans', sans-serif;
+                    }
+                    ul{
+                        list-style: none;
+                        margin: 0;
+                        padding: 0;
+                    }
+                `}
+            />
+            <Helmet>
+                <title>{siteName}</title>
+                <meta name='description' content={description}></meta>
+                <link href='https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css' rel='stylesheet'/>
+            </Helmet>
+            <Header></Header>
+            {props.children}
+            <Footer 
+                title={title}
+            />
+        </>
+     );
 }
-
-Layout.propTypes = {
-  children: PropTypes.node.isRequired,
-}
-
-export default Layout
+ 
+export default Layout;
