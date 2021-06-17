@@ -1,11 +1,12 @@
 import * as React from "react"
 import Layout from '../components/layout'
 import {css} from '@emotion/react'
-import ImagenInicio from '../components/imagenInicio'
+//import ImagenInicio from '../components/imagenInicio'
 import ContenidoInicio from '../components/contenidoInicio'
 import CarreraPreview from "../components/carreraPreview"
 import useCarrera from "../hooks/useCarrera"
 import styled from "@emotion/styled"
+import Carousel from '../components/carousel'
 
 const ListadoCarreras = styled.ul`
   max-width: 1500px;
@@ -25,7 +26,8 @@ const IndexPage = () => {
   //console.log(carreras)
   return( 
     <Layout>
-      <ImagenInicio />
+      <Carousel></Carousel>
+      {/*<ImagenInicio />*/}
   
       <ContenidoInicio/>
   

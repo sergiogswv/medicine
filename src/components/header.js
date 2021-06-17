@@ -5,7 +5,7 @@ import { Link } from 'gatsby';
 import Navegacion from './nav'
 
 const EnlaceHome = styled(Link)`
-    color:#fff;
+    color:#000;
     text-align: center;
     text-decoration: none;
 `
@@ -14,7 +14,7 @@ const Header = () => {
     return ( 
         <header
             css={css`
-                background-color: #333;
+                background-image: radial-gradient(circle at 104.17% 4.55%, #ffffff 0, #ffffff 12.5%, #ffffff 25%, #f5ffff 37.5%, #e2ffff 50%, #cef6f9 62.5%, #bceef5 75%, #abe6f2 87.5%, #9bdff1 100%);
                 padding: 1rem;
             `}
         >

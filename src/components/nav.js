@@ -11,7 +11,7 @@ const Nav = styled.nav`
     }
 `
 const NavLink = styled(Link)`
-    color: #fff;
+    color: #000;
     font-size: 1.6rem;
     font-weight: 700;
     line-height: 1;
@@ -24,7 +24,7 @@ const NavLink = styled(Link)`
         margin-right: 0;
     }
     &.pagina-actual{
-        border-bottom: 2px solid #fff;
+        border-bottom: 2px solid #000;
     }
 `
 

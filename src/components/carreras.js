@@ -29,7 +29,7 @@ query($slug: String!){
 
 const CarreraTemplate = ({data: {allDatoCmsCarrera: {nodes}}}) => {
 
-    const {titulo, subtitulo, imagen, requisitos, imagenvertical} = nodes[0]
+    const {titulo, subtitulo,  requisitos, imagenvertical} = nodes[0]
     const ima = getImage(imagenvertical)
     //console.log(nodes[0])
 

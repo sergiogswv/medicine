@@ -5,6 +5,7 @@ import styled from '@emotion/styled'
 import {css} from '@emotion/react'
 import { Link } from 'gatsby';
 
+
 const TextoInicio = styled.div`
     padding-top: 4rem;
     max-width: 1500px;
@@ -23,14 +24,15 @@ const TextoInicio = styled.div`
 const Boton = styled(Link)`
     margin-top: 2rem;
     padding: 1rem;
-    background-color: rgba(44,62,80,.85);
+    background-color:#E2FFFF;
     width: 100%;
-    color: #fff;
+    color: #000;
     display: block;
     text-decoration: none;
     text-transform: uppercase;
     font-weight: 700;
     text-align: center;
+    font-size: 2rem;
 `
 
 const ContenidoInicio = () => {
@@ -57,6 +59,7 @@ const ContenidoInicio = () => {
     const url = subtitulo.toLocaleLowerCase()
     return ( 
         <>
+            
             <h2
                 css={css`
                     text-align:center;
@@ -65,6 +68,7 @@ const ContenidoInicio = () => {
                 `}
             >{titulo}</h2>
 
+            
             <TextoInicio>
                 <div>
                     <h2>{subtitulo}</h2>

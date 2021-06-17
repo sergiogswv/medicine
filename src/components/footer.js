@@ -5,7 +5,7 @@ import styled from '@emotion/styled'
 import {Link} from 'gatsby'
 
 const EnlaceHome = styled(Link)`
-    color: #fff;
+    color: #000;
     text-align: center;
     text-decoration:none;
 `
@@ -17,9 +17,10 @@ const Footer = ({title}) => {
         <>
             <footer
                 css={css`
-                    background-color: rgba(44,62,80);
+                    background-image: radial-gradient(circle at 13.92% 43.64%, #ffffff 0, #ffffff 8.33%, #ffffff 16.67%, #ffffff 25%, #ffffff 33.33%, #f7ffff 41.67%, #e2ffff 50%, #cdf6f9 58.33%, #b9edf5 66.67%, #a7e5f2 75%, #97ddf1 83.33%, #8ad5f0 91.67%, #7fcef0 100%);
                     margin-top: 5rem;
                     padding:1rem;
+                    
                 `}
             >
                 <div
