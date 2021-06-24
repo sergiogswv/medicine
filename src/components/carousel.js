@@ -1,6 +1,7 @@
 import React from 'react';
 import useCarousel from '../hooks/useCarousel';
 import styled from '@emotion/styled';
+import { Link } from 'gatsby';
 
 const Titulo = styled.h3`
     font-weight: 700;
@@ -8,10 +9,31 @@ const Titulo = styled.h3`
     color: #fff;
     text-transform: uppercase;
     -webkit-text-stroke: 2px black;
+    @media(min-width:769px) and (max-width:1024px){
+        font-size: 2.75rem;
+    }
+    @media(max-width:768px){
+        font-size: 2.5rem;
+    }
 `
 const Parrafo = styled.p`
     font-size: 2.5rem;
-
+    @media(min-width:769px) and (max-width:1024px){
+        font-size: 1.5rem;
+    }
+`
+const Boton = styled.button`
+    font-size: 1.5rem;
+    background-color: #E2FFFF;
+    border: none;
+    border-radius: 20px;
+    margin-bottom: 1rem;
+    @media(min-width:769px) and (max-width:1024px){
+        font-size: .75rem;
+    }
+    @media(max-width:768px){
+        font-size: 1rem;
+    }
 `
 
 const Carousel = () => {
@@ -38,39 +60,45 @@ const Carousel = () => {
                     <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="4" aria-label="Slide 5"></button>
                 </div>
                 <div className="carousel-inner">
-                    <div className="carousel-item active" data-bs-interval="1500">
-                        <img src={imagenesTemp[4]} className="d-block w-100" alt="..."/>
-                        <div className="carousel-caption d-none d-md-block">
-                            <Titulo>{tituloTemp[4]}</Titulo>
-                            <Parrafo>{parrafoTemp[4]}</Parrafo>
-                        </div>
-                    </div>
-                    <div className="carousel-item" data-bs-interval="1500">
-                        <img src={imagenesTemp[1]} className="d-block w-100" alt="..."/>
-                        <div className="carousel-caption d-none d-md-block">
-                            <Titulo>{tituloTemp[1]}</Titulo>
-                            <Parrafo>{parrafoTemp[1]}</Parrafo>
-                        </div>
-                    </div>
-                    <div className="carousel-item" data-bs-interval="1500">
-                        <img src={imagenesTemp[2]} className="d-block w-100" alt="..." />
-                        <div className="carousel-caption d-none d-md-block">
-                            <Titulo>{tituloTemp[2]}</Titulo>
-                            <Parrafo>{parrafoTemp[2]}</Parrafo>
-                        </div>
-                    </div>
-                    <div className="carousel-item" data-bs-interval="1500">
-                        <img src={imagenesTemp[3]} className="d-block w-100" alt="..." />
-                        <div className="carousel-caption d-none d-md-block">
-                            <Titulo>{tituloTemp[3]}</Titulo>
-                            <Parrafo>{parrafoTemp[3]}</Parrafo>
-                        </div>
-                    </div>
-                    <div className="carousel-item" data-bs-interval="1500">
-                        <img src={imagenesTemp[0]} className="d-block w-100" alt="..." />
-                        <div className="carousel-caption d-none d-md-block">
+                    <div className="carousel-item active" data-bs-interval="5000">
+                        <img src={imagenesTemp[0]} className="d-block w-100" alt="..."/>
+                        <div className="carousel-caption">
                             <Titulo>{tituloTemp[0]}</Titulo>
-                            <Parrafo>{parrafoTemp[0]}</Parrafo>
+                            <Parrafo className='d-none d-md-block'>{parrafoTemp[0]}</Parrafo>
+                            <Link to='/servicios'><Boton type="button" class="btn btn-info">Más Información</Boton></Link>
+                        </div>
+                    </div>
+                    <div className="carousel-item" data-bs-interval="5000">
+                        <img src={imagenesTemp[1]} className="d-block w-100" alt="..."/>
+                        <div className="carousel-caption ">
+                            <Titulo>{tituloTemp[1]}</Titulo>
+                            <Parrafo className='d-none d-md-block'>{parrafoTemp[1]}</Parrafo>
+                            <Link to='/servicios/escuela'><Boton type="button" class="btn btn-info">Más Información</Boton></Link>
+                        </div>
+                        
+                    </div>
+                    <div className="carousel-item" data-bs-interval="5000">
+                        <img src={imagenesTemp[2]} className="d-block w-100" alt="..." />
+                        <div className="carousel-caption">
+                            <Titulo>{tituloTemp[2]}</Titulo>
+                            <Parrafo className='d-none d-md-block'>{parrafoTemp[2]}</Parrafo>
+                            <Link to='/enfermeria'><Boton type="button" class="btn btn-info">Más Información</Boton></Link>
+                        </div>
+                    </div>
+                    <div className="carousel-item" data-bs-interval="5000">
+                        <img src={imagenesTemp[3]} className="d-block w-100" alt="..." />
+                        <div className="carousel-caption">
+                            <Titulo>{tituloTemp[3]}</Titulo>
+                            <Parrafo className='d-none d-md-block'>{parrafoTemp[3]}</Parrafo>
+                            <Link to='/medicina'><Boton type="button" class="btn btn-info">Más Información</Boton></Link>
+                        </div>
+                    </div>
+                    <div className="carousel-item" data-bs-interval="5000">
+                        <img src={imagenesTemp[4]} className="d-block w-100" alt="..." />
+                        <div className="carousel-caption">
+                            <Titulo>{tituloTemp[4]}</Titulo>
+                            <Parrafo className='d-none d-md-block'>{parrafoTemp[4]}</Parrafo>
+                            <Link to='/contacto'><Boton type="button" class="btn btn-info">Más Información</Boton></Link>
                         </div>
                     </div>
                 </div>

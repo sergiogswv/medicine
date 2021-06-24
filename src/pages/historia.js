@@ -2,6 +2,7 @@ import React from 'react';
 import Layout from '../components/layout'
 import useHistoria from '../hooks/useHistoria';
 import HistoriaPreview from '../components/historiaPreview';
+import {css} from '@emotion/react'
 
 
 const Historia = () => {
@@ -13,7 +14,15 @@ const Historia = () => {
     //const {descripcion} = historiales
     return ( 
         <Layout>
-            <h1>Historia</h1>
+            <h1
+                css={css`
+                    text-align: center;
+                    font-weight: bold;
+                    font-size: 5rem;
+                    padding-top: 5rem;
+                    padding-bottom: 5rem;
+                `}
+            >Historia</h1>
             {historias.map(historia=>(
                 <HistoriaPreview 
                     key={historia.id}

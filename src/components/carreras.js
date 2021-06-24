@@ -54,16 +54,44 @@ const CarreraTemplate = ({data: {allDatoCmsCarrera: {nodes}}}) => {
                     text-align: center;
                     margin-top: 4rem;
                     font-size: 4rem;
+                    margin-bottom: 2.5rem;
                 `}
                 >{subtitulo}</h3>
                 <div
                     css={css`
                         display: flex;
                         justify-content: space-between;
-
+                        h2{
+                            font-size: 2.75rem;
+                        }
+                        p{
+                            font-size: 2.25rem;
+                        }
                         .imagenCarrera{
-                            width: 50%;
+                            width: 60%;
                             margin: auto auto;
+                        }
+                        @media(max-width:768px){
+                            display: block;
+                            .imagenCarrera{
+                                width: 100%;
+                                margin: auto auto;
+                            }
+                            h2{
+                                font-size: 1.65rem;
+                            }
+                            p{
+                                font-size: 1.45rem;
+                            }
+                        }
+                        @media(min-width:769px) and (max-width:1024px){
+                            
+                            h2{
+                                font-size: 1.65rem;
+                            }
+                            p{
+                                font-size: 1.45rem;
+                            }
                         }
                     `}
                 >
@@ -71,6 +99,16 @@ const CarreraTemplate = ({data: {allDatoCmsCarrera: {nodes}}}) => {
                     <div
                         css={css`
                             text-align:right;
+                            @media(max-width:768px){
+                                width: 100%;
+                                text-align: center;
+                                margin-top: 2rem;
+                            }
+                            @media(min-width:769px) and (max-width:1024px){
+                                width: 50%;
+                                text-align: right;
+                                margin-top: 2rem;
+                            }
                         `}
                     >
                     {

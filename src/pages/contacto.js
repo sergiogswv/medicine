@@ -4,6 +4,7 @@ import {graphql, useStaticQuery} from 'gatsby'
 import { GatsbyImage, getImage } from 'gatsby-plugin-image'
 import {css} from '@emotion/react'
 import styled from '@emotion/styled'
+import Email from '../components/email';
 
 const Contenido = styled.main`
     padding-top: 4rem;
@@ -83,8 +84,14 @@ const Contacto = () => {
                     <h1>{titulod}</h1>
                     <h2>{subtitulod}</h2>
                 </Contenido>
-                
-                <Contenido>
+                <div
+                    css={css`
+                        display: flex;
+                        justify-content: space-between;
+                    `}
+                >
+                    <Email></Email>
+                    <Contenido>
                     {contenidod.map(content=>{
                         return(
                             <div
@@ -99,6 +106,8 @@ const Contacto = () => {
                     
                     
                 </Contenido>
+                </div>
+                
             </Layout>
         </>
      );

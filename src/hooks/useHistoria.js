@@ -4,7 +4,7 @@ const useHistoria = () => {
 
     const data = useStaticQuery(graphql`
     query{
-        allDatoCmsHistory{
+        allDatoCmsHistory(sort: {fields: id}){
             nodes{
                 parrafo
                 segundoparrafo

@@ -4,7 +4,7 @@ import { GatsbyImage, getImage } from 'gatsby-plugin-image'
 import styled from '@emotion/styled'
 import {css} from '@emotion/react'
 import { Link } from 'gatsby';
-
+import Carousel from './carousel'
 
 const TextoInicio = styled.div`
     padding-top: 4rem;
@@ -79,6 +79,18 @@ const ContenidoInicio = () => {
                 <GatsbyImage image={ima} alt='imagenInicio' 
                 />
             </TextoInicio>
+            <div
+                css={css`
+                    margin: 5rem auto;
+                    width: 50%;
+                    @media(max-width:768px){
+                        width:100%
+                    }
+                `}
+            >
+                <Carousel></Carousel>
+            </div>
+            
         </>
      );
 }

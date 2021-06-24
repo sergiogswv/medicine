@@ -45,6 +45,9 @@ const Layout = (props) => {
                     p{
                         font-size: 1.5rem;
                     }
+                    input{
+                        font-size: 2rem;
+                    }
                 `}
             />
             <Helmet>

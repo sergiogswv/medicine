@@ -11,7 +11,7 @@ const useCarrera = () => {
                 subtitulo
                 contenido
                 imagen{
-                    gatsbyImageData(layout: FULL_WIDTH)
+                    gatsbyImageData(layout: CONSTRAINED)
                 }
                 slug
             }
