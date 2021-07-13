@@ -2,7 +2,9 @@ import React, {useState} from 'react';
 import emailjs from 'emailjs-com';
 
 
-const Email = () => {
+const Email = ({correo}) => {
+
+    console.log(correo)
     const frmContact = { userEmail:'', completeName:'', cellNumber:'', emailDetails:'' };
     const [contact,setContact] = useState(frmContact);
     const [showMessage, setShowMessage] = useState(false);
@@ -28,8 +30,10 @@ const Email = () => {
 		{ showMessage ? <div className="alert alert-success col-md-5 mx-auto" role="alert">¡Envio Exitoso, nos podremos en contacto contigo!</div> : ``}
 	
 		<form onSubmit={handleSubmit}>
-            <div className="pt-3"><h1 className="font-weight-bold"> ¡¡ Contáctanos y envia tus dudas !! </h1></div>
-
+            <div className="pt-3"><h1 className="font-weight-bold"> ¡¡ Contáctanos y envia tus dudas !! </h1>
+            <h3>{correo}</h3>
+            </div>
+            
             <div className="pt-3 col-md-5 mx-auto">
                 <div className="form-group text-left" > <h3>Tu correo</h3> <br/>
                     <input required type="text" value={contact.userEmail} name="userEmail" onChange={handleChange} className="form-control form-control-lg" placeholder="Tu email" />
@@ -42,7 +46,7 @@ const Email = () => {
             </div>
             <div className="pt-3 col-md-5 mx-auto">
                 <div className="form-group text-left" id="inputGroup-sizing-lg"> <h3>Número de contacto</h3> <br/>
-                    <input value={contact.cellNumber} required type="number" name="cellNumber" onChange={handleChange}  className="form-control form-control-lg" placeholder="Número" />
+                    <input value={contact.cellNumber} required type="text" name="cellNumber" onChange={handleChange}  className="form-control form-control-lg" placeholder="Número"  />
                 </div>
             </div>
             <div className="pt-3 col-md-5 mx-auto"  >

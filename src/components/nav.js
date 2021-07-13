@@ -26,6 +26,9 @@ const NavLink = styled(Link)`
     &.pagina-actual{
         border-bottom: 2px solid #000;
     }
+    @media(min-width:320px) and (max-width: 767px){
+        font-size: 1.3rem;
+    }
 `
 
 const Navegacion = () => {

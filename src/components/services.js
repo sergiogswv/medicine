@@ -4,6 +4,20 @@ import Layout from '../components/layout'
 import { GatsbyImage, getImage } from 'gatsby-plugin-image'
 import { css } from '@emotion/react';
 import styled from '@emotion/styled';
+import EscuelaPreview from './escuelaPreview'
+import useEscuela from "../hooks/useEscuela"
+
+const ListadoCarreras = styled.ul`
+  max-width: 1500px;
+  width: 95%;
+  margin: 4rem auto 0 auto;
+
+  @media(min-width:768px){
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 3rem;
+  }
+`
 
 const ContenedorPrincipal = styled.div`
     margin: 0 auto;
@@ -41,29 +55,46 @@ query($slug: String!){
                 titulo
                 descripcion
             }
+            slug
+            id
+            infohosp {
+                titulo
+                    descripcion {
+                        value
+                    }
+                
+                }
+            }
         }
     }
-}
 `
 
 
 const ServiceTemplate = ({data: {allDatoCmsService: {nodes}}}) => {
-
-    //console.log(nodes[0])
-    const {titulo, imagen, contenido} = nodes[0]
+   
+    const escuela = useEscuela()
+    
+    const {titulo, imagen, slug, id} = nodes[0]
     const ima = getImage(imagen)
-    //console.log(nodes)
+
+    const infohosp = nodes[0].infohosp
     return ( 
         <Layout>
             <ContenedorPrincipal>
-                
                 <GatsbyImage image={ima} alt='imagenService' className='banner' />
-                <ContenedorSecundario>
+                {console.log(slug)}
+                {/*click en hospital si no... */}
+                {slug==='hospital'
+                ? (<ContenedorSecundario
+                    key={id}
+                    >
+                    
                     <h1>{titulo}</h1>
                     {
-                        contenido.map(content=>{
+                        infohosp.map(info=>{
                             return(
                                 <div
+                                    
                                     css={css`
                                         h2{
                                             text-align:center;
@@ -73,7 +104,7 @@ const ServiceTemplate = ({data: {allDatoCmsService: {nodes}}}) => {
                                         }
                                     `}
                                 >
-                                    <h2>{content.titulo}</h2>
+                                    <h2>{info.titulo}</h2>
                                     <main
                                         css={css`
                                             max-width: 1200px;
@@ -83,14 +114,32 @@ const ServiceTemplate = ({data: {allDatoCmsService: {nodes}}}) => {
                                             padding-top: 1rem;
                                         `}
                                     >
-                                        <p>{content.descripcion}</p>
+                                        {
+                                            (info.descripcion.value.document.children).map(parrafo =>{
+                                                //console.log(parrafo.children[0].value)
+                                                return(
+                                                    <p>{parrafo.children[0].value}</p>
+                                                )
+                                            })
+                                            
+                                        }
                                     </main>
                                     
                                 </div>
                             )
                         })
                     }
-                </ContenedorSecundario>
+                </ContenedorSecundario>)
+                : (<ListadoCarreras>
+                    {escuela.map(servicios=>(
+                        <EscuelaPreview 
+                            key={servicios.id}
+                            carrera={servicios}
+                            bandera={2}
+                        />
+                    ))}
+                    </ListadoCarreras>)}
+               
             </ContenedorPrincipal>
         </Layout>
 

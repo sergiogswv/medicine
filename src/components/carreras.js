@@ -3,11 +3,13 @@ import { graphql } from 'gatsby';
 import Layout from '../components/layout'
 import { GatsbyImage, getImage } from 'gatsby-plugin-image'
 import { css } from '@emotion/react';
+import useCarreraInfo from '../hooks/useCarreraInfo';
 
 export const query = graphql`
 query($slug: String!){
 	allDatoCmsCarrera(filter: {slug: {eq : $slug}} ){
         nodes{
+            id
             titulo
             subtitulo
             contenido
@@ -27,15 +29,20 @@ query($slug: String!){
 }
 `
 
+
 const CarreraTemplate = ({data: {allDatoCmsCarrera: {nodes}}}) => {
 
-    const {titulo, subtitulo,  requisitos, imagenvertical} = nodes[0]
+    const carreraInfo = useCarreraInfo()
+
+    const {titulo, subtitulo,  requisitos, imagenvertical, id} = nodes[0]
     const ima = getImage(imagenvertical)
-    //console.log(nodes[0])
+    //console.log(carreraInfo[0])
+    const {contenido} = carreraInfo[0]
 
     return ( 
         <Layout>
             <main
+                key={id}
                 css={css`
                     margin: 0 auto;
                     max-width: 1500px;
@@ -124,7 +131,36 @@ const CarreraTemplate = ({data: {allDatoCmsCarrera: {nodes}}}) => {
                     }
                     </div>
                 </div>
-                
+                {   
+                    contenido.map(content =>{
+                        if(content.ocuparen === 'servicios_escolares'){
+                            return(
+                                <main
+                                    key={content.id}
+                                    css={css`
+                                        width: 100%;
+                                        padding: 0;
+                                        margin: 20px 0 20px 0 ;
+                                        align-items: center;
+                                        text-align: center;
+                                    `}
+                                >   
+                                    
+                                    <h1
+                                        css={css`
+                                            margin-bottom: 10px;
+                                        `}
+                                    >{content.titulo}</h1>
+                                    <p
+                                        css={css`
+                                            line-height: 1.5;
+                                        `}
+                                    >{content.descripcion}</p>
+                                </main>
+                            )
+                        }
+                    })
+                }
                 
             </main>
         </Layout>

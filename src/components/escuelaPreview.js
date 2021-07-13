@@ -18,21 +18,20 @@ const Boton = styled(Link)`
     font-size: 2rem;
 `
 
-const carreraPreview = ({carrera, bandera}) => {
+const EscuelaPreview = ({carrera, bandera}) => {
 
-    const {contenido, imagen, titulo, subtitulo, slug} = carrera
-    //console.log(carrera)
-    //console.log(bandera)
+    const { imagen, titulo, slug} = carrera
+
     const ima = getImage(imagen)
-    const urlFinal = 'servicios/escuela/tramites-escolares/'+slug
+    //const urlFinal = 'servicios/escuela/tramites-escolares/'+slug
     return ( 
         <div
             css={css`
                 border: 1px solid #e1e1e1;
                 margin-bottom: 2rem;
             `}
-        >   
-            <GatsbyImage image={ima} alt='imagenCarrera' />
+        > 
+        <GatsbyImage image={ima} alt='imagenCarrera' />
             <div
                 css={css`
                     padding: 3rem;
@@ -45,25 +44,18 @@ const carreraPreview = ({carrera, bandera}) => {
                         font-size: 3rem;
                     `}
                 >{titulo}</h2>
-                <h4
-                    css={css`
-                    text-align:center;
-                    font-weight: bold;
-                    font-size: 2rem;
-                `}
-                >{subtitulo}</h4>
-                <p>{contenido}</p>
-                {
+                {/*
                     bandera === 1
                     ? (<Boton to={urlFinal}>ver más</Boton>)
-                    : <Boton to={slug}>ver más</Boton>
+                    : <Boton to={slug}>ver más</Boton>*/
                 }
-                
+                <Boton to={slug}>ver más</Boton>
             
             </div>
+                
         </div>
 
      );
 }
  
-export default carreraPreview;
+export default EscuelaPreview;

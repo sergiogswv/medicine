@@ -58,6 +58,7 @@ const Carousel = () => {
                     <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
                     <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="3" aria-label="Slide 4"></button>
                     <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="4" aria-label="Slide 5"></button>
+                    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="5" aria-label="Slide 6"></button>
                 </div>
                 <div className="carousel-inner">
                     <div className="carousel-item active" data-bs-interval="5000">
@@ -65,7 +66,7 @@ const Carousel = () => {
                         <div className="carousel-caption">
                             <Titulo>{tituloTemp[0]}</Titulo>
                             <Parrafo className='d-none d-md-block'>{parrafoTemp[0]}</Parrafo>
-                            <Link to='/servicios'><Boton type="button" class="btn btn-info">Más Información</Boton></Link>
+                            <Link to='/servicios'><Boton type="button" className="btn btn-info">Medicina</Boton></Link>
                         </div>
                     </div>
                     <div className="carousel-item" data-bs-interval="5000">
@@ -73,7 +74,7 @@ const Carousel = () => {
                         <div className="carousel-caption ">
                             <Titulo>{tituloTemp[1]}</Titulo>
                             <Parrafo className='d-none d-md-block'>{parrafoTemp[1]}</Parrafo>
-                            <Link to='/servicios/escuela'><Boton type="button" class="btn btn-info">Más Información</Boton></Link>
+                            <Link to='/servicios/escuela'><Boton type="button" className="btn btn-info">Enfermeria</Boton></Link>
                         </div>
                         
                     </div>
@@ -82,7 +83,7 @@ const Carousel = () => {
                         <div className="carousel-caption">
                             <Titulo>{tituloTemp[2]}</Titulo>
                             <Parrafo className='d-none d-md-block'>{parrafoTemp[2]}</Parrafo>
-                            <Link to='/enfermeria'><Boton type="button" class="btn btn-info">Más Información</Boton></Link>
+                            <Link to='/enfermeria'><Boton type="button" className="btn btn-info">Escuela</Boton></Link>
                         </div>
                     </div>
                     <div className="carousel-item" data-bs-interval="5000">
@@ -90,7 +91,7 @@ const Carousel = () => {
                         <div className="carousel-caption">
                             <Titulo>{tituloTemp[3]}</Titulo>
                             <Parrafo className='d-none d-md-block'>{parrafoTemp[3]}</Parrafo>
-                            <Link to='/medicina'><Boton type="button" class="btn btn-info">Más Información</Boton></Link>
+                            <Link to='/medicina'><Boton type="button" className="btn btn-info">Servicios</Boton></Link>
                         </div>
                     </div>
                     <div className="carousel-item" data-bs-interval="5000">
@@ -98,7 +99,15 @@ const Carousel = () => {
                         <div className="carousel-caption">
                             <Titulo>{tituloTemp[4]}</Titulo>
                             <Parrafo className='d-none d-md-block'>{parrafoTemp[4]}</Parrafo>
-                            <Link to='/contacto'><Boton type="button" class="btn btn-info">Más Información</Boton></Link>
+                            <Link to='/contacto'><Boton type="button" className="btn btn-info">Contacto</Boton></Link>
+                        </div>
+                    </div>
+                    <div className="carousel-item" data-bs-interval="5000">
+                        <img src={imagenesTemp[5]} className="d-block w-100" alt="..." />
+                        <div className="carousel-caption">
+                            <Titulo>{tituloTemp[5]}</Titulo>
+                            <Parrafo className='d-none d-md-block'>{parrafoTemp[5]}</Parrafo>
+                            <Link to='/mapa-de-sitio'><Boton type="button" className="btn btn-info">Mapa de Sitio</Boton></Link>
                         </div>
                     </div>
                 </div>

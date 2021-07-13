@@ -62,7 +62,7 @@ const Contacto = () => {
     const {titulo, contenido, imagen} = resultado.allDatoCmsPagina.nodes[0] 
     const ima = getImage(imagen)
 
-    const {titulod, subtitulod, contenidod} = resultado.allDatoCmsDirectorio.nodes[0]
+    const {subtitulod} = resultado.allDatoCmsDirectorio.nodes[0]
     //console.log(nombre)
     return ( 
         <>
@@ -80,32 +80,18 @@ const Contacto = () => {
                     <GatsbyImage image={ima} alt='imagenInicio' 
                     />
                 </Contenido>
-                <Contenido>
-                    <h1>{titulod}</h1>
-                    <h2>{subtitulod}</h2>
-                </Contenido>
+                
                 <div
                     css={css`
                         display: flex;
                         justify-content: space-between;
                     `}
-                >
-                    <Email></Email>
-                    <Contenido>
-                    {contenidod.map(content=>{
-                        return(
-                            <div
-                                key={content.id}
-                            >
-                                <h3>{content.nombre}</h3>
-                                <h3>{content.puesto}</h3>
-                                <p>{content.email}</p>
-                            </div>
-                        )
-                    })}
+                >   
                     
+                    <Email
+                        correo={subtitulod}
+                    ></Email>
                     
-                </Contenido>
                 </div>
                 
             </Layout>

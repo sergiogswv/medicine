@@ -1,15 +1,13 @@
 import { graphql, useStaticQuery } from 'gatsby';
 
-const useCarrera = () => {
+const useEscuela = () => {
 
     const data = useStaticQuery(graphql`
     query{
-        allDatoCmsCarrera(sort: {fields: titulo}){
-            nodes{
+        allDatoCmsEscuela{
+            nodes{   
                 id
                 titulo
-                subtitulo
-                contenido
                 imagen{
                     gatsbyImageData(layout: CONSTRAINED)
                 }
@@ -19,7 +17,7 @@ const useCarrera = () => {
     }
     `)
 
-    return data.allDatoCmsCarrera.nodes.map(carrera =>({
+    return data.allDatoCmsEscuela.nodes.map(carrera =>({
         titulo: carrera.titulo,
         subtitulo: carrera.subtitulo,
         contenido: carrera.contenido,
@@ -30,4 +28,4 @@ const useCarrera = () => {
    
 }
  
-export default useCarrera;
+export default useEscuela;

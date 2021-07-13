@@ -18,9 +18,9 @@ const Boton = styled(Link)`
 `
 
 const servicePreview = ({service}) => {
-
+    
     const {imagen, titulo, slug} = service
-    console.log(slug)
+   //console.log(service)
     const ima = getImage(imagen)
 
 
@@ -29,6 +29,7 @@ const servicePreview = ({service}) => {
             css={css`
                 border: 1px solid #e1e1e1;
                 margin-bottom: 2rem;
+                height: 100%;
             `}
         >   
             <GatsbyImage image={ima} alt='imagenCarrera' />

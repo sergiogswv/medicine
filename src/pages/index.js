@@ -1,4 +1,4 @@
-import * as React from "react"
+import React from "react"
 import Layout from '../components/layout'
 import {css} from '@emotion/react'
 import ImagenInicio from '../components/imagenInicio'
@@ -6,7 +6,7 @@ import ContenidoInicio from '../components/contenidoInicio'
 import CarreraPreview from "../components/carreraPreview"
 import useCarrera from "../hooks/useCarrera"
 import styled from "@emotion/styled"
-
+import Alerta from '../components/alerta'
 
 const ListadoCarreras = styled.ul`
   max-width: 1500px;
@@ -20,13 +20,20 @@ const ListadoCarreras = styled.ul`
   }
 `
 
+const fecha = new Date()
+const mes = fecha.getMonth()
+
 const IndexPage = () => {
 
   const carreras = useCarrera()
   //console.log(carreras)
   return( 
     <Layout>
-      
+
+      {mes >= 6 && mes <=10 
+          ? 
+              <Alerta></Alerta>
+          : null }
       <ImagenInicio />
   
       <ContenidoInicio/>
@@ -45,9 +52,13 @@ const IndexPage = () => {
             <CarreraPreview 
               key={carrera.id}
               carrera={carrera}
+              bandera={1}
             />
         ))}
       </ListadoCarreras>
+        
+      
+      
     </Layout>
   )
   

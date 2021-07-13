@@ -9,6 +9,7 @@ const ListadoServices = styled.ul`
   max-width: 1500px;
   width: 95%;
   margin: 4rem auto 0 auto;
+  
 
   @media(min-width:768px){
     display: grid;
@@ -31,15 +32,23 @@ const Servicios = () => {
                 
             `}
         >Nuestros Servicios</h2>
+        <div
+            css={css`
+                //height: calc(100vh - 56px - 56px - 52.5px);
+                height: 100%;
+            `}
+        >
+            <ListadoServices>
+                {services.map(service=>(
+                    <ServicePreview 
+                        key={service.id}
+                        service={service}
+                    />
+                ))}
+            </ListadoServices>
+        </div>
 
-        <ListadoServices>
-            {services.map(service=>(
-                <ServicePreview 
-                key={service.id}
-                service={service}
-                />
-            ))}
-        </ListadoServices>
+        
         </Layout>
     )
 }

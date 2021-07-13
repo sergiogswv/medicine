@@ -9,6 +9,11 @@ const EnlaceHome = styled(Link)`
     text-align: center;
     text-decoration:none;
 `
+const EnlaceMapa = styled(Link)`
+    color: #fff;
+    text-align: center;
+    text-decoration:none;
+`
 
 const Footer = ({title}) => {
 
@@ -54,9 +59,13 @@ const Footer = ({title}) => {
                     background-color: rgb(33,44,55);
                     margin:0;
                     padding: 1rem;
+                    display: block;
                 `}
-            >
-                <p>{title}. Todos los derechos reservados {year} &copy;</p>
+            >   
+                
+                <p>{title}. Todos los derechos reservados {year}</p>
+                <EnlaceMapa to={'/mapa-de-sitio'}><p>Mapa de Sitio</p></EnlaceMapa>
+                <p>Aviso de privacidad</p>
             </div>
 
         </>

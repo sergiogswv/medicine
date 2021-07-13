@@ -4,7 +4,7 @@ const useCarousel = () => {
 
     const informacionImg = useStaticQuery(graphql`
     query{
-        allDatoCmsCarousel{
+        allDatoCmsCarousel(sort: {fields: id}){
             nodes{
                 id
                 imagen{
